@@ -14,7 +14,7 @@ jobs:
 
     - name: Create server .env
       run: |
-        touch server/.env
+        touch .env
         echo DATABASE_URL="${{ secrets.DATABASE_URL }}" >> .env
         echo EMAIL_SERVER="${{ secrets.EMAIL_SERVER }}" >> .env
         echo EMAIL_FROM="${{ secrets.EMAIL_FROM }}" >> .env
