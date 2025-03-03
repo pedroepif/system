@@ -1,18 +1,23 @@
 "use server";
-import jwt from "jsonwebtoken";
+import { type JWTPayload, jwtVerify, SignJWT } from "jose";
 import { env } from "@/env";
 
-const SECRET = env.SECRET;
+const SECRET = new TextEncoder().encode(env.SECRET);
 
-export async function signJwt(payload: object) {
-  return jwt.sign(payload, SECRET);
+export async function signJwt(payload: JWTPayload): Promise<string> {
+  return await new SignJWT(payload)
+    .setProtectedHeader({ alg: "HS256" })
+    .setIssuedAt()
+    .setExpirationTime("1h")
+    .sign(SECRET);
 }
 
 export async function verifyJwt<T = object>(token: string): Promise<T | null> {
   try {
-    return jwt.verify(token, SECRET) as T;
+    const { payload } = await jwtVerify(token, SECRET);
+    return payload as T;
   } catch (err) {
-    console.log(err);
+    console.error("Invalid token:", err);
     return null;
   }
 }

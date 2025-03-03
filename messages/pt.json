@@ -1,7 +1,7 @@
 {
     "api": {
         "user": {
-            "success": "{type, select, user {Usuário} session {Seção} forgot {E-mail de recuperação} other {}} {mode, select, create {criado} edit {atualizado} deleted {removido} sent {enviado} other {}} com sucesso",
+            "success": "{type, select, user {Usuário} session {Seção} forgot {E-mail de recuperação} other {}} {mode, select, create {criado} edit {atualizado} deleted {removido} sent {enviado} got {obtido} other {}} com sucesso",
             "intern_error": "Erro interno do sistema",
             "not_found": "{type, select, user {Usuário} session {Seção} other {}} não encontrado",
             "email_in_use": "E-mail em uso",

@@ -31,6 +31,7 @@ export async function getUserPermission(
       method: "GET",
       headers: {
         cookies: (await cookies()).toString(),
+        "x-next-internal": "true",
       },
       cache: "force-cache",
       next: {

@@ -1,7 +1,7 @@
 {
     "api": {
         "user": {
-            "success": "{type, select, user {User} session {Session} forgot {Fogot password email} other {}} successfully {mode, select, create {created} edit {updated} deleted {deleted} sent {sent} other {}}",
+            "success": "{type, select, user {User} session {Session} forgot {Fogot password email} other {}} successfully {mode, select, create {created} edit {updated} deleted {deleted} sent {sent} got {got} other {}}",
             "intern_error": "Intern server error",
             "not_found": "{type, select, user {User} session {Session} other {}} not found",
             "email_in_use": "Email already in use",

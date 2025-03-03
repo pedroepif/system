@@ -9,6 +9,7 @@ export async function createCompany(body: CreateCompanyBodyType) {
     method: "POST",
     headers: {
       cookies: (await cookies()).toString(),
+      "x-next-internal": "true",
     },
     body: JSON.stringify(body),
   });

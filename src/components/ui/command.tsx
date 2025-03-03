@@ -15,6 +15,7 @@ import {
 
 function Command({
   className,
+  children,
   ...props
 }: React.ComponentProps<typeof CommandPrimitive>) {
   return (

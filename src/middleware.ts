@@ -2,6 +2,7 @@ import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
 import { routing } from "./i18n/routing";
 import { getCurrentUser } from "./lib/session";
+import { verifyJwt } from "./lib/jwt";
 
 const publicRoutes = [
   "sign-up",
@@ -13,6 +14,29 @@ const publicRoutes = [
 const nextIntlMiddleware = createMiddleware(routing);
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  const isApiRoute = pathname.startsWith("/api");
+  if (isApiRoute) {
+    const isInternal = request.headers.get("x-next-internal") === "true";
+    if (isInternal) return NextResponse.next();
+
+    const apikey = request.headers.get("apikey");
+    if (apikey) {
+      const decoded = await verifyJwt<{ company_id: string }>(apikey);
+      if (decoded && decoded.company_id) {
+        const headers = new Headers(request.headers);
+        headers.set("x-company-id", decoded.company_id);
+        return NextResponse.next({
+          request: {
+            headers,
+          },
+        });
+      }
+    }
+
+    return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
+  }
+
   const isHomePage = pathname.split("/").length === 2;
   const isPublicRoute =
     publicRoutes.some((route) => pathname.includes(route)) || isHomePage;
@@ -37,6 +61,6 @@ export const config = {
      * - _next/image (image optimization files)
      * - favicon.ico, sitemap.xml, robots.txt (metadata files)
      */
-    "/((?!api|_next/static|_next/image|favicon|logo|sitemap.xml|robots.txt).*)",
+    "/((?!_next/static|_next/image|favicon|logo|sitemap.xml|robots.txt).*)",
   ],
 };

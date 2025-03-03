@@ -15,6 +15,7 @@ export async function validateUserSession(
     method: "GET",
     headers: {
       cookies: (await cookies()).toString(),
+      "x-next-internal": "true",
     },
     cache: "force-cache",
     next: {
@@ -38,6 +39,7 @@ export async function invalidateUserSession() {
       method: "DELETE",
       headers: {
         cookies: (await cookies()).toString(),
+        "x-next-internal": "true",
       },
     },
   );

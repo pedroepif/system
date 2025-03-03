@@ -21,6 +21,7 @@ export async function updateCompany(
     method: "PATCH",
     headers: {
       cookies: (await cookies()).toString(),
+      "x-next-internal": "true",
     },
     body: JSON.stringify(body),
   });
@@ -43,6 +44,7 @@ export async function deleteCompany(params: DeleteCompanyParamsType) {
     method: "DELETE",
     headers: {
       cookies: (await cookies()).toString(),
+      "x-next-internal": "true",
     },
   });
   const data: DeleteCompanyReponseType = await response.json();
@@ -63,6 +65,7 @@ export async function getCompany(params: GetCompanyParamsType) {
     method: "GET",
     headers: {
       cookies: (await cookies()).toString(),
+      "x-next-internal": "true",
     },
     cache: "force-cache",
     next: {

@@ -16,6 +16,7 @@ const eslintConfig = [
       "next/typescript",
       "plugin:prettier/recommended",
     ],
+    ignorePatterns: ["src/components/ui/*"],
   }),
 ];
 

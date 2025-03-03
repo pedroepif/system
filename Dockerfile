@@ -4,7 +4,6 @@ FROM --platform=${PLATFORM} node:20-alpine AS deps
 WORKDIR /app
 
 COPY package.json package-lock.json ./
-COPY prisma ./
 
 RUN \
     if [ -f package-lock.json ]; then npm ci; \
@@ -16,11 +15,10 @@ RUN \
 FROM --platform=${PLATFORM} node:20-alpine AS builder
 WORKDIR /app
 
-RUN apk add --no-cache openssl
-
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+RUN npx prisma generate
 RUN npx prisma db push
 
 ENV NEXT_TELEMETRY_DISABLED=1
@@ -36,7 +34,7 @@ FROM --platform=${PLATFORM} gcr.io/distroless/nodejs20-debian12 AS runner
 
 WORKDIR /app
 
-COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/next.config.ts ./
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json
 

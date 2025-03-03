@@ -12,6 +12,7 @@ export async function createUserSession(body: CreateUserSessionBodyType) {
     method: "POST",
     headers: {
       cookies: cookieStorage.toString(),
+      "x-next-internal": "true",
     },
     body: JSON.stringify(body),
   });

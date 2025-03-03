@@ -8,6 +8,7 @@ export async function createUser(body: CreateUserBodyType) {
     method: "POST",
     headers: {
       cookies: (await cookies()).toString(),
+      "x-next-internal": "true",
     },
     body: JSON.stringify(body),
   });

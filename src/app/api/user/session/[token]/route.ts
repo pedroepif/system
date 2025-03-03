@@ -59,7 +59,7 @@ export async function GET(
     response = {
       status: 200,
       body: {
-        message: t("user.success", { type: "session", mode: "create" }),
+        message: t("user.success", { type: "session", mode: "got" }),
         user: userSession.user,
       },
     };
