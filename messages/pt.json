@@ -1,0 +1,208 @@
+{
+    "api": {
+        "user": {
+            "success": "{type, select, user {Usuário} session {Seção} forgot {E-mail de recuperação} other {}} {mode, select, create {criado} edit {atualizado} deleted {removido} sent {enviado} other {}} com sucesso",
+            "intern_error": "Erro interno do sistema",
+            "not_found": "{type, select, user {Usuário} session {Seção} other {}} não encontrado",
+            "email_in_use": "E-mail em uso",
+            "invalid_body": "Corpo da requisição inválido",
+            "invalid_password": "Senha incorreta",
+            "session_expired": "Seção expirada"
+        },
+        "permission": {
+            "success": "{type, select, user {Permissão de usuário} company {Permissão da organização} other {}} {mode, select, create {criado} edit {atualizado} deleted {removido} got {obtido} other {}} com sucesso",
+            "intern_error": "Erro interno do sistema",
+            "not_found": "{type, select, user {Permissão de usuário} company {Permissão da organização} other {}} não encontrado",
+            "invalid_body": "Corpo da requisição inválido"
+        },
+        "company": {
+            "success": "{type, select, company {Organização} other {}} {mode, select, create {criado} edit {atualizado} deleted {removido} got {obtido} other {}} com sucesso",
+            "intern_error": "Erro interno do sistema",
+            "not_found": "{type, select, company {Organização} owner {Usuário proprietário} other {}} não encontrado",
+            "invalid_body": "Corpo da requisição inválido"
+        }
+    },
+    "Theme": {
+        "toggle": {
+        "label": "Mudar de tema",
+        "light": "Claro",
+        "dark": "Escuro",
+        "system": "Sistema"
+        }
+    },
+    "Metadata": {
+        "title": "Aplicação Full Stack Next.Js",
+        "description": "Aplicação Full Stack construída com Next.Js App Router"
+    },
+    "SignUp": {
+        "slogan": "Soluções inteligentes para impulsionar o seu negócio.",
+        "title": "Comece agora",
+        "description": "Crie uma nova conta",
+        "have_account": "Possui uma conta?",
+        "sign_in": "Entre Agora",
+        "form": {
+            "name": {
+                "label": "Nome:",
+                "placeholder": "Ex. João",
+                "message": "Nome não pode ser vázio"
+            },
+            "email": {
+                "label": "E-mail:",
+                "placeholder": "joao@exemplo.com",
+                "message": "E-mail inválido"
+            },
+            "phone": {
+                "label": "Telefone:",
+                "placeholder": "+55 (12) 3456-7890",
+                "message": "Telefone inválido"
+            },
+            "password": {
+                "label": "Senha:",
+                "placeholder": "************",
+                "message": "Senha deve ter pelo menos 6 caracteres"
+            },
+            "confirm_password": {
+                "label": "Confirme sua Senha:",
+                "placeholder": "************",
+                "message": "As senhas devem ser iguais"
+            },
+            "button": "Inscrever-se"
+        }
+    },
+    "SignIn": {
+        "slogan": "Soluções inteligentes para impulsionar o seu negócio.",
+        "title": "Bem-vindo de volta",
+        "description": "Entre em sua conta",
+        "have_account": "Não possui uma conta?",
+        "sign_up": "Inscreva-se Agora",
+        "form": {
+            "email": {
+                "label": "E-mail:",
+                "placeholder": "joao@exemplo.com",
+                "message": "E-mail inválido"
+            },
+            "password": {
+                "label": "Senha:",
+                "placeholder": "************",
+                "message": "Senha não pode ser vázia"
+            },
+            "forgot_password": "Esqueceu sua senha?",
+            "recover_password": "Recupere Agora",
+            "button": "Entrar"
+        }
+    },
+    "ForgotPassword": {
+        "slogan": "Soluções inteligentes para impulsionar o seu negócio.",
+        "title": "Esqueceu sua senha?",
+        "description": "Envie um e-mail de recuperação para redefini-la",
+        "form": {
+            "email": {
+                "label": "E-mail:",
+                "placeholder": "joao@exemplo.com",
+                "message": "E-mail inválido"
+            },
+            "button": "Enviar E-mail de Recuperação"
+        }
+    },
+    "ResetPassword": {
+        "slogan": "Soluções inteligentes para impulsionar o seu negócio.",
+        "title": "Redefinição de senha",
+        "description": "Defina uma nova senha para sua conta",
+        "form": {
+            "password": {
+                "label": "Senha:",
+                "placeholder": "************",
+                "message": "Senha deve ter pelo menos 6 caracteres"
+            },
+            "confirm_password": {
+                "label": "Confirme sua Senha:",
+                "placeholder": "************",
+                "message": "As senhas devem ser iguais"
+            },
+            "invalid_token": "Link para redefinição de senha inválido ou expirado",
+            "button": "Redefinir Senha"
+        }
+    },
+    "User": {
+        "update": {
+            "button": "Atualizar",
+            "title": "Atualizar Perfil",
+            "description": "Mude as informações do seu perfil",
+            "form": {
+                "name": {
+                    "label": "Nome:",
+                    "placeholder": "Ex. João",
+                    "message": "Nome não pode ser vázio"
+                },
+                "phone": {
+                    "label": "Telefone:",
+                    "placeholder": "+55 (12) 3456-7890",
+                    "message": "Telefone inválido"
+                },
+                "avatar": {
+                    "label": "Avatar:",
+                    "message": "Arquivo muito grande, tamanho máximo é 5MB"
+                },
+                "button": "Salvar"
+            }
+        },
+        "log_out": "Sair"
+    },
+    "ResultsPerPage": {
+        "label": "Resultados por página:",
+        "placeholder": "Selecione um valor"
+    },
+    "Pagination": {
+        "previous": "Anterior",
+        "next": "Próximo",
+        "more": "Mais páginas"
+    },
+    "UserPermissions": {
+        "no_results": "Nenhum resultado encontrado",
+        "search": "Pesquise pelo nome da organização...",
+        "last_update": "Ultima atualização:",
+        "role": {
+            "user": "Usuário",
+            "admin": "Administrador",
+            "owner": "Proprietário"
+        }
+    },
+    "CompanyDialog": {
+        "create": {
+            "button": "Criar",
+            "title": "Criar Empresa",
+            "description": "Novo perfil de empresa para utilizar a aplicação",
+            "submit": "Criar"
+        },
+        "edit": {
+            "button": "Editar",
+            "title": "Editar Organização",
+            "description": "Edite o perfil da sua organização",
+            "submit": "Salvar"
+        },
+        "input": {
+            "name": {
+                "label": "Nome:",
+                "placeholder":"Ex. Minha Empresa",
+                "message": "Nome não pode ser vázio"
+            },
+            "logo_black": {
+                "label": "Logotipo Preta:"
+            },
+            "logo_white": {
+                "label": "Logotipo Branca:"
+            },
+            "file": {
+                "message": "Apenas imagens PNG são permitidas",
+                "too_large": "Arquivo muito grande, tamanho máximo é 5MB"
+            }
+        }
+    },
+    "CompanyAlert": {
+        "button": "Excluir",
+        "title": "Você tem certeza disso?",
+        "description": "Essa ação irá excluir permanentemente a organização. Você não poderá desfazer essa ação.",
+        "continue": "Continuar",
+        "cancel": "Cancelar"
+    }
+}

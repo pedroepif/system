@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Base Full Stack Setup
 
-## Getting Started
+This is a full stack setup for developing web applications using Next.Js.
 
-First, run the development server:
+## What's included?
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The main goal of this base setup is to be a simple way to start web application development using Next.Js and some other cool stacks, provinding:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- User Authentication: a full setup to Sign In, Sign Up, Forgot Password and Reset Password.
+- Internationalization: multiple language support.
+- Multiple Company: a system with multiple companies, providing SaaS support.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+For this base setup we are using:
 
-## Learn More
+- [Next.js](https://nextjs.org)
+- [Prisma](https://prisma.io)
+- [Tailwind CSS](https://tailwindcss.com)
+- [Shadcn](https://ui.shadcn.com)
+- [Nodemailer](https://www.nodemailer.com)
+- [Zod](https://zod.dev)
+- [Next-Intl](https://next-intl.dev)
+- [Lucia Auth](https://lucia-auth.com)
 
-To learn more about Next.js, take a look at the following resources:
+## End-to-end typesafe
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is design to use a end-to-end typesafe design, using only Zod Schemas and Type. Every API route has a type, a route and a action. We can use the actions to call the route inside the frontend already typed.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## How to deploy?
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+There is a Dockerfile already defined to build and run the Next.Js project with all necessary dependencies! Or you can just use the standards Next.Js commands to run the application.

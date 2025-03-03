@@ -1,0 +1,69 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String   @id @default(cuid())
+  name       String
+  email      String   @unique
+  phone      String
+  avatar     String?
+  password   String
+  updated_at DateTime @updatedAt
+  created_at DateTime @default(now())
+
+  permissions Permission[]
+  Session     UserSession[]
+}
+
+model UserSession {
+  id         String   @id
+  user_id    String   @unique
+  expires_at DateTime
+  updated_at DateTime @updatedAt
+  created_at DateTime @default(now())
+
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model Company {
+  id         String   @id @default(cuid())
+  name       String
+  logo_black String?
+  logo_white String?
+  updated_at DateTime @updatedAt
+  created_at DateTime @default(now())
+
+  permissions Permission[]
+}
+
+model Permission {
+  id         String   @id @default(cuid())
+  company_id String
+  user_id    String
+  role       Role
+  updated_at DateTime @updatedAt
+  created_at DateTime @default(now())
+
+  company Company @relation(fields: [company_id], references: [id], onDelete: Cascade)
+  user    User    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@unique([company_id, user_id])
+}
+
+enum Role {
+  user
+  admin
+  owner
+}
