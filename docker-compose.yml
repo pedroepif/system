@@ -4,6 +4,8 @@ services:
     restart: always
     deploy:
       replicas: 1
+    ports:
+      - 3000:3000
     environment:
       - NODE_ENV=production
 
