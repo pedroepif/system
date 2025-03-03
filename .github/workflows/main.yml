@@ -1,0 +1,32 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+    
+jobs:
+
+  Deploy:
+    runs-on: ["self-hosted", "app"]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Create server .env
+      run: |
+        touch server/.env
+        echo DATABASE_URL="${{ secrets.DATABASE_URL }}" >> .env
+        echo EMAIL_SERVER="${{ secrets.EMAIL_SERVER }}" >> .env
+        echo EMAIL_FROM="${{ secrets.EMAIL_FROM }}" >> .env
+        echo BASE_URL="${{ secrets.BASE_URL }}" >> .env
+        echo SECRET="${{ secrets.SECRET }}" >> .env
+    
+    - name: Build Images
+      run: |
+        docker build -t system .
+
+    - name: Deploy Compose
+      run: docker stack deploy -c docker-compose.yml system
+
+    - name: Update Services
+      run: docker service update --force system_system

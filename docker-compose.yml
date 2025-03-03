@@ -1,0 +1,13 @@
+services:
+  system:
+    image: system
+    restart: always
+    deploy:
+      replicas: 1
+    environment:
+      - NODE_ENV=production
+
+networks:
+  default:
+    name: default_network
+    external: true
