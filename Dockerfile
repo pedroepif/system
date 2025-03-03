@@ -1,6 +1,6 @@
 ##### DEPENDENCIES
 ARG PLATFORM=linux/amd64
-FROM --platform=${PLATFORM} node:20-alpine AS deps
+FROM --platform=${PLATFORM} node:20-slim AS deps
 WORKDIR /app
 
 COPY package.json package-lock.json ./
@@ -12,9 +12,10 @@ RUN \
 
 ##### BUILDER
 
-FROM --platform=${PLATFORM} node:20-alpine AS builder
+FROM --platform=${PLATFORM} node:20-slim AS builder
 WORKDIR /app
 
+RUN apt-get update -y && apt-get install -y openssl
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
