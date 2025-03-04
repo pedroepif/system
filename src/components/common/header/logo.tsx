@@ -27,11 +27,11 @@ export default function Logo({
         />
       ) : (
         <Image
-          src="/logo-black.svg"
-          alt="logo-black"
+          src="/logo.svg"
+          alt="logo-white"
           width={120}
           height={40}
-          className="block dark:hidden object-contain"
+          className="block dark:hidden object-contain invert"
         />
       )}
       {company?.logo_black ? (
@@ -45,8 +45,8 @@ export default function Logo({
         />
       ) : (
         <Image
-          src="/logo-white.svg"
-          alt="logo-white"
+          src="/logo.svg"
+          alt="logo-black"
           width={120}
           height={40}
           className="hidden dark:block object-contain"
