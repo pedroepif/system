@@ -13,7 +13,7 @@ export default function Logo({
 }) {
   return (
     <LocaleLink
-      href="/"
+      href="/dashboard"
       className="flex items-center justify-center h-10 overflow-hidden"
     >
       {company?.logo_white ? (
@@ -31,7 +31,7 @@ export default function Logo({
           alt="logo-white"
           width={120}
           height={40}
-          className="block dark:hidden object-contain invert"
+          className="hidden dark:block object-contain invert"
         />
       )}
       {company?.logo_black ? (
@@ -49,7 +49,7 @@ export default function Logo({
           alt="logo-black"
           width={120}
           height={40}
-          className="hidden dark:block object-contain"
+          className="block dark:hidden object-contain"
         />
       )}
     </LocaleLink>
