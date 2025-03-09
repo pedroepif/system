@@ -2,7 +2,7 @@ import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
 import { routing } from "./i18n/routing";
 import { getCurrentUser } from "./lib/session";
-import { verifyJwt } from "./lib/jwt";
+import { getApiKey } from "./app/api/apikey/[id]/actions";
 
 const publicRoutes = [
   "sign-up",
@@ -22,10 +22,10 @@ export async function middleware(request: NextRequest) {
 
     const apikey = request.headers.get("apikey");
     if (apikey) {
-      const decoded = await verifyJwt<{ company_id: string }>(apikey);
-      if (decoded && decoded.company_id) {
+      const { error, apiKey } = await getApiKey({ id: apikey });
+      if (!error && apiKey) {
         const headers = new Headers(request.headers);
-        headers.set("x-company-id", decoded.company_id);
+        headers.set("x-company-id", apiKey.company_id);
         return NextResponse.next({
           request: {
             headers,

@@ -20,6 +20,12 @@
             "intern_error": "Erro interno do sistema",
             "not_found": "{type, select, company {Organização} owner {Usuário proprietário} other {}} não encontrado",
             "invalid_body": "Corpo da requisição inválido"
+        },
+        "apikey": {
+            "success": "{type, select, apikey {Chave de api} other {}} {mode, select, create {criado} edit {atualizado} deleted {removido} got {obtido} other {}} com sucesso",
+            "intern_error": "Erro interno do sistema",
+            "not_found": "{type, select, apikey {Chave de api} other {}} não encontrado",
+            "invalid_body": "Corpo da requisição inválido"
         }
     },
     "Theme": {
@@ -186,11 +192,9 @@
                 "placeholder":"Ex. Minha Empresa",
                 "message": "Nome não pode ser vázio"
             },
-            "logo_black": {
-                "label": "Logotipo Preta:"
-            },
-            "logo_white": {
-                "label": "Logotipo Branca:"
+            "logo": {
+                "label": "Logotipo:",
+                "tooltip": "Você deve subir uma logotipo preta com o fundo transparente"
             },
             "file": {
                 "message": "Apenas imagens PNG são permitidas",

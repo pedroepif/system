@@ -40,12 +40,12 @@ model UserSession {
 model Company {
   id         String   @id @default(cuid())
   name       String
-  logo_black String?
-  logo_white String?
+  logo       String?
   updated_at DateTime @updatedAt
   created_at DateTime @default(now())
 
   permissions Permission[]
+  apikeys     ApiKey[]
 }
 
 model Permission {
@@ -66,4 +66,13 @@ enum Role {
   user
   admin
   owner
+}
+
+model ApiKey {
+  id         String   @id @default(uuid())
+  company_id String   @unique
+  updated_at DateTime @updatedAt
+  created_at DateTime @default(now())
+
+  company Company @relation(fields: [company_id], references: [id], onDelete: Cascade)
 }

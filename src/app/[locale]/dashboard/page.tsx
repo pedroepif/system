@@ -1,6 +1,6 @@
 import { Header } from "@/components/common/header";
 import { HeaderSkeleton } from "@/components/common/header/skeleton";
-import { UserPermissions } from "@/components/dashboard/grid";
+import { UserPermissions } from "@/components/dashboard";
 import { Spinner } from "@/components/ui/spinner";
 import { Suspense } from "react";
 

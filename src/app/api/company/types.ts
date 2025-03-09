@@ -4,8 +4,7 @@ import { z, ZodError } from "zod";
 export const createCompanyBodySchema = z.object({
   name: z.string().min(1),
   user_id: z.string(),
-  logo_white: z.string().optional(),
-  logo_black: z.string().optional(),
+  logo: z.string().optional(),
 });
 export type CreateCompanyBodyType = z.infer<typeof createCompanyBodySchema>;
 
@@ -16,8 +15,7 @@ export const createCompanySuccessResponseSchema = z.object({
     company: z.object({
       id: z.string(),
       name: z.string(),
-      logo_white: z.string().nullable(),
-      logo_black: z.string().nullable(),
+      logo: z.string().nullable(),
     }),
   }),
 });

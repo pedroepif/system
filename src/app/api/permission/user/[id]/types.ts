@@ -21,8 +21,7 @@ export const getUserPermissionSuccessResponseSchema = z.object({
         company: z.object({
           id: z.string(),
           name: z.string(),
-          logo_white: z.string().nullable(),
-          logo_black: z.string().nullable(),
+          logo: z.string().nullable(),
           updated_at: z.date(),
         }),
       }),

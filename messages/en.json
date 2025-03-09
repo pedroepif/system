@@ -20,6 +20,12 @@
             "intern_error": "Intern server error",
             "not_found": "{type, select, company {Company} owner {Owner user} other {}} not found",
             "invalid_body": "Invalid request body"
+        },
+        "apikey": {
+            "success": "{type, select, apikey {Api key} other {}} successfully {mode, select, create {created} edit {updated} deleted {deleted} got {got} other {}}",
+            "intern_error": "Intern server error",
+            "not_found": "{type, select, apikey {Api key} other {}} not found",
+            "invalid_body": "Invalid request body"
         }
     },
     "Theme": {
@@ -186,11 +192,9 @@
                 "placeholder":"Eg. My Company",
                 "message": "Name must not be empty"
             },
-            "logo_black": {
-                "label": "Black Logo:"
-            },
-            "logo_white": {
-                "label": "White Logo:"
+            "logo": {
+                "label": "Logo:",
+                "tooltip": "You should upload a black logo with transparent background"
             },
             "file": {
                 "message": "Only PNG images are allowed",

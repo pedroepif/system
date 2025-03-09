@@ -22,6 +22,7 @@ export async function GET(
     const search = searchParams.get("search");
     const page = Number(searchParams.get("page") ?? 1);
     const take = Number(searchParams.get("limit") ?? 10);
+    const company_id = searchParams.get("company_id");
     const skip = page ? (page - 1) * take : 0;
 
     const permissions = await database.permission.findMany({
@@ -31,6 +32,9 @@ export async function GET(
           company: {
             name: { contains: search, mode: "insensitive" },
           },
+        }),
+        ...(company_id && {
+          company_id,
         }),
       },
       include: {
@@ -50,8 +54,21 @@ export async function GET(
             name: { contains: search, mode: "insensitive" },
           },
         }),
+        ...(company_id && {
+          company_id,
+        }),
       },
     });
+    if (company_id && totalCount === 0) {
+      response = {
+        status: 400,
+        body: {
+          error: t("permission.not_found", { type: "user" }),
+        },
+      };
+      return Response.json(response, { status: 400 });
+    }
+
     response = {
       status: 200,
       body: {

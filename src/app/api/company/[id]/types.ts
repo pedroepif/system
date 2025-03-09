@@ -8,8 +8,7 @@ export type UpdateCompanyParamsType = z.infer<typeof updateCompanyParamsSchema>;
 
 export const updateCompanyBodySchema = z.object({
   name: z.string().min(1).optional(),
-  logo_white: z.string().optional(),
-  logo_black: z.string().optional(),
+  logo: z.string().optional(),
 });
 export type UpdateCompanyBodyType = z.infer<typeof updateCompanyBodySchema>;
 
@@ -20,8 +19,7 @@ export const updateCompanySuccessResponseSchema = z.object({
     company: z.object({
       id: z.string(),
       name: z.string(),
-      logo_white: z.string().nullable(),
-      logo_black: z.string().nullable(),
+      logo: z.string().nullable(),
     }),
   }),
 });
@@ -88,8 +86,7 @@ export const getCompanySuccessResponseSchema = z.object({
     company: z.object({
       id: z.string(),
       name: z.string(),
-      logo_white: z.string().nullable(),
-      logo_black: z.string().nullable(),
+      logo: z.string().nullable(),
     }),
   }),
 });

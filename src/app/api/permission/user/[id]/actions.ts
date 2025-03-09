@@ -13,6 +13,7 @@ export async function getUserPermission(
     search?: string;
     page?: number;
     limit?: number;
+    company_id?: string;
   },
 ) {
   const { id } = params;
@@ -21,6 +22,7 @@ export async function getUserPermission(
   if (query.search) queryParams.append("search", query.search);
   if (query.page) queryParams.append("page", query.page.toString());
   if (query.limit) queryParams.append("limit", query.limit.toString());
+  if (query.company_id) queryParams.append("company_id", query.company_id);
   const searchParams = queryParams.toString()
     ? `?${queryParams.toString()}`
     : "";
