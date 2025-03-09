@@ -56,34 +56,19 @@ export async function UserPermissions({
                   <ChevronRight className="hidden lg:block absolute top-4 right-5 opacity-50 duration-300 ease-in-out group-hover:translate-x-1 group-hover:scale-105 group-hover:opacity-75" />
                   <div className="flex flex-col lg:flex-row items-center gap-4 lg:text-left transition-all">
                     <div className="flex items-center justify-center h-12 overflow-hidden">
-                      {permission.company.logo_black ? (
+                      {permission.company.logo ? (
                         <Image
-                          src={permission.company.logo_black}
-                          alt="logo-black"
+                          src={permission.company.logo}
+                          alt="logo"
                           width={120}
                           height={40}
-                          className="block dark:hidden object-contain"
+                          className="dark:invert object-contain"
                           unoptimized
                         />
                       ) : (
                         <Building2
                           size={40}
-                          className="absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
-                        />
-                      )}
-                      {permission.company.logo_white ? (
-                        <Image
-                          src={permission.company.logo_white}
-                          alt="logo-white"
-                          width={120}
-                          height={40}
-                          className="hidden dark:block object-contain"
-                          unoptimized
-                        />
-                      ) : (
-                        <Building2
-                          size={40}
-                          className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+                          className="dark:rotate-90 dark:scale-0 rotate-0 scale-100 transition-all"
                         />
                       )}
                     </div>
