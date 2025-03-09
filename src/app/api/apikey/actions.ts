@@ -17,6 +17,7 @@ export async function createApiKey(body: CreateApiKeyBodyType) {
 
   if (data.status !== 200) return { error: true, message: data.body.error };
   revalidateTag("apikey");
+  revalidateTag("company-apikey");
 
   return {
     error: false,

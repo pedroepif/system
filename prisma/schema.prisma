@@ -70,7 +70,7 @@ enum Role {
 
 model ApiKey {
   id         String   @id @default(uuid())
-  company_id String   @unique
+  company_id String
   updated_at DateTime @updatedAt
   created_at DateTime @default(now())
 

@@ -28,12 +28,7 @@ import { toast } from "sonner";
 import { createCompany } from "@/app/api/company/actions";
 import { useState } from "react";
 import { updateCompany } from "@/app/api/company/[id]/actions";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "../ui/tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 import { CircleHelp } from "lucide-react";
 
 export function CompanyDialog({
@@ -133,16 +128,14 @@ export function CompanyDialog({
                   <FormItem>
                     <FormLabel>
                       {t("input.logo.label")}
-                      <TooltipProvider>
-                        <Tooltip>
-                          <TooltipTrigger>
-                            <CircleHelp size={14} />
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            {t("input.logo.tooltip")}
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger>
+                          <CircleHelp size={14} />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          {t("input.logo.tooltip")}
+                        </TooltipContent>
+                      </Tooltip>
                     </FormLabel>
                     <FormControl>
                       <div className="flex flex-row items-center gap-2">

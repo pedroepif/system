@@ -20,6 +20,7 @@ export async function deleteApiKey(params: DeleteApiKeyParamsType) {
   });
   const data: DeleteApiKeyReponseType = await response.json();
   revalidateTag("apikey");
+  revalidateTag("company-apikey");
 
   if (data.status !== 200) return { error: true, message: data.body.error };
 

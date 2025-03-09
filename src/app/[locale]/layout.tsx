@@ -1,4 +1,5 @@
 import { ThemeProvider } from "@/components/common/theme/provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { LocaleType, routing } from "@/i18n/routing";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
@@ -44,7 +45,7 @@ export default async function LocaleLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <TooltipProvider>{children}</TooltipProvider>
         </ThemeProvider>
       </NextIntlClientProvider>
       <Toaster expand richColors />
