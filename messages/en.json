@@ -10,10 +10,11 @@
             "session_expired": "Session expired"
         },
         "permission": {
-            "success": "{type, select, user {User permission} company {Company permission} other {}} successfully {mode, select, create {created} edit {updated} deleted {deleted} got {got} other {}}",
+            "success": "{type, select, permission {Permission} user {User permission} company {Company permission} other {}} successfully {mode, select, create {created} edit {updated} deleted {deleted} got {got} other {}}",
             "intern_error": "Intern server error",
-            "not_found": "{type, select, user {User permission} company {Company permission} other {}} not found",
-            "invalid_body": "Invalid request body"
+            "not_found": "{type, select, permission {Permission} user {User} other {}} not found",
+            "invalid_body": "Invalid request body",
+            "in_company": "User already in the company"
         },
         "company": {
             "success": "{type, select, company {Company} other {}} successfully {mode, select, create {created} edit {updated} deleted {deleted} got {got} other {}}",

@@ -23,6 +23,7 @@ export async function updateUser(
   });
   const data: UpdateUserReponseType = await response.json();
   revalidateTag("user");
+  revalidateTag("company-permission");
 
   if (data.status !== 200) return { error: true, message: data.body.error };
 

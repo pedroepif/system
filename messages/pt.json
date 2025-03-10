@@ -10,10 +10,11 @@
             "session_expired": "Seção expirada"
         },
         "permission": {
-            "success": "{type, select, user {Permissão de usuário} company {Permissão da organização} other {}} {mode, select, create {criado} edit {atualizado} deleted {removido} got {obtido} other {}} com sucesso",
+            "success": "{type, select, permission {Permissão} user {Permissão de usuário} company {Permissão da organização} other {}} {mode, select, create {criado} edit {atualizado} deleted {removido} got {obtido} other {}} com sucesso",
             "intern_error": "Erro interno do sistema",
-            "not_found": "{type, select, user {Permissão de usuário} company {Permissão da organização} other {}} não encontrado",
-            "invalid_body": "Corpo da requisição inválido"
+            "not_found": "{type, select, permission {Permissão} user {Usuário} other {}} não encontrado",
+            "invalid_body": "Corpo da requisição inválido",
+            "in_company": "O usuário já faz parte da organização"
         },
         "company": {
             "success": "{type, select, company {Organização} other {}} {mode, select, create {criado} edit {atualizado} deleted {removido} got {obtido} other {}} com sucesso",
