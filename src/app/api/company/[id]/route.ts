@@ -152,7 +152,7 @@ export async function GET(
     response = {
       status: 200,
       body: {
-        message: t("company.success", { type: "company", mode: "deleted" }),
+        message: t("company.success", { type: "company", mode: "got" }),
         company: existingCompany,
       },
     };

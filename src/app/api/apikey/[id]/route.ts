@@ -89,7 +89,7 @@ export async function GET(
     response = {
       status: 200,
       body: {
-        message: t("apikey.success", { type: "apikey", mode: "deleted" }),
+        message: t("apikey.success", { type: "apikey", mode: "got" }),
         apiKey: existingApiKey,
       },
     };

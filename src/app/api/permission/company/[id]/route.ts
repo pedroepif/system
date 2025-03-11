@@ -56,8 +56,11 @@ export async function GET(
       where: {
         company_id: id,
         ...(search && {
-          company: {
-            name: { contains: search, mode: "insensitive" },
+          user: {
+            OR: [
+              { name: { contains: search, mode: "insensitive" } },
+              { email: { contains: search, mode: "insensitive" } },
+            ],
           },
         }),
       },
