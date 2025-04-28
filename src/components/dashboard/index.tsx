@@ -66,10 +66,7 @@ export async function UserPermissions({
                           unoptimized
                         />
                       ) : (
-                        <Building2
-                          size={40}
-                          className="dark:rotate-90 dark:scale-0 rotate-0 scale-100 transition-all"
-                        />
+                        <Building2 size={40} />
                       )}
                     </div>
                     <div className="flex flex-col">
